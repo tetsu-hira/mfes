@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <a href="/" class="header-logo">LIST APP</a>
+    </header>
+    <main class="main">
+      <div class="Index__container">
+        <div class="container-header">
+          <h1>Participation</h1>
+          <a href="/match" class="newMatch">matche</a>
+          <a href="/new" class="newTeam">+ 新規追加</a>
+        </div>
+        <div class="index-table-wrapper">
+          <div class="table-head">
+            <div class="id-column">ID</div>
+            <div class="name-column">name</div>
+            <div class="point-column">point</div>
+            <div class="score-column">score</div>
+            <div class="rank-column">rank</div>
+          </div>
+          <ul class="table-body">
+            <% items.forEach((team) => { %>
+              <li>
+                <div class="item-data">
+                  <div class="flex-left">
+                    <div class="id-column"><%= team.id %></div>
+                    <div class="name-column"><%= team.name %></div>
+                  </div>
+                  <div class="flex-right">
+                    <div class="point-column"><%= team.point %></div>
+                    <div class="score-column"><%= team.score %></div>
+                    <div class="rank-column"><%= team.rank %></div>
+                    <div class="item-menu">
+                      <form action="/delete/<%= team.id %>" method="post">
+                        <input type="submit" value="削除">
+                      </form>
+                      <a href="/edit/<%= team.id %>">編集</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% }) %> 
+          </ul>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
