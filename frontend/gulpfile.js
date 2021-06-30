@@ -1,99 +1,69 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var mmq = require('gulp-merge-media-queries');
+const { src, dest, series, parallel } = require('gulp');
+const del = require('del');
+const fs   = require('fs');
+const zip = require('gulp-zip');
+const log = require('fancy-log');
+const webpack_stream = require('webpack-stream');
+const webpack_config = require('./webpack.config.js');
+var exec = require('child_process').exec;
 
-var imageResize = require('gulp-image-resize');
-var imageOptim = require('gulp-imageoptim');
-var uglify = require('gulp-uglify');
-var pump = require('pump');
-var htmlmin = require('gulp-htmlmin');
-var cleanCSS = require('gulp-clean-css');
-var rename = require('gulp-rename');
-var browserSync = require('browser-sync').create();
+const paths = {
+  prod_build: '../prod-build',
+  server_file_name: 'server.bundle.js',
+  vue_src: '../my-app/dist/**/*',
+  vue_dist: '../prod-build/my-app/dist',
+  zipped_file_name: 'vuejs-nodejs.zip'
+};
 
+function clean()  {
+  log('removing the old files in the directory')
+  return del('../prod-build/**', {force:true});
+}
 
-// コンパイル
-gulp.task('sass', function () {
-  return gulp.src('./scss/**/*.scss')
-      .pipe(plumber())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({
-        browsers: ['last 2 version'],
-        cascade: false
-    }))
-    .pipe(mmq({ log: true }))
-    .pipe(notify('SCSSをコンパイルしたよ〜'))
-    .pipe(gulp.dest('./css'));
-});
+function createProdBuildFolder() {
 
-// browserSync
-gulp.task('browser-sync', function(){
-    browserSync.init({
-        server: {
-            baseDir: "./",
-            index: "index.html"
-        },
-        notify: false
-    });
-});
+  const dir = paths.prod_build;
+  log(`Creating the folder if not exist  ${dir}`)
+  if(!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+    log('📁  folder created:', dir);
+  }
 
-gulp.task('bs-reload', function(){
-    browserSync.reload();
-});
+  return Promise.resolve('the value is ignored');
+}
 
-// 変更をwatchする
-gulp.task('watch', ['browser-sync'], function () {
-  gulp.watch('./scss/**/*.scss', ['sass', 'bs-reload']);
-  gulp.watch('*.html', ['bs-reload']);
-});
+function buildReactCodeTask(cb) {
+  log('building Vue code into the directory')
+  return exec('cd ../my-app && npm run build', function (err, stdout, stderr) {
+    log(stdout);
+    log(stderr);
+    cb(err);
+  })
+}
 
+function copyVueCodeTask() {
+  log('copying Vue code into the directory')
+  return src(`${paths.vue_src}`)
+        .pipe(dest(`${paths.vue_dist}`));
+}
 
-// 画像圧縮
-gulp.task('minifyIMG', function() {
-    return gulp.src('./img/**/*')
-        .pipe(imageResize({
-            width: 1500,
-            imageMagick: true
-        }))
-        .pipe(imageOptim.optimize({
-            jpegmini: true
-        }))
-        .pipe(gulp.dest('public/img'));
-});
+function copyNodeJSCodeTask() {
+  log('building and copying server code into the directory')
+  return webpack_stream(webpack_config)
+        .pipe(dest(`${paths.prod_build}`))
+}
 
-// js圧縮
-gulp.task('minifyJS', function(cb){
-    pump([
-        gulp.src('./js/*.js'),
-        uglify(),
-        rename({ extname: ".min.js" }),
-        gulp.dest('./public/js')
-        ],
-    cb
-    );
-});
+function zippingTask() {
+  log('zipping the code ')
+  return src(`${paths.prod_build}/**`)
+      .pipe(zip(`${paths.zipped_file_name}`))
+      .pipe(dest(`${paths.prod_build}`))
+}
 
-// html圧縮
-gulp.task('minifyHTML', function() {
-    return gulp.src('*.html')
-        .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest('./public'))
-});
-
-// css圧縮
-gulp.task('minifyCSS', function(){
-    return gulp.src('./css/*.css')
-        .pipe(cleanCSS())
-        .pipe(rename({ extname: ".min.css" }))
-        .pipe(gulp.dest('./public/css'))
-});
-
-
-// 圧縮タスク実行
-gulp.task('minifyAll', ['minifyIMG', 'minifyJS', 'minifyHTML', 'minifyCSS']);
-
-
-gulp.task('default', gulp.series(['sass', 'watch']));
+exports.default = series(
+  clean,
+  createProdBuildFolder,
+  buildReactCodeTask,
+  parallel(copyVueCodeTask, copyNodeJSCodeTask),
+  zippingTask
+);
