@@ -36,12 +36,7 @@
                     <div class="name-column"><%= team.name %></div>
                   </div>
                   <div class="flex-right">
-                    <select name="court" class="SelectCourt">
-                      <% courts.forEach((court) => { %>
-                        <option hidden>選択</option>
-                        <option><%= court.number %></option>
-                      <% }) %> 
-                    </select>
+                    <div class="court-column"><%= team.court %></div>
                     <div class="point-column"><%= team.point %></div>
                     <div class="score-column"><%= team.score %></div>
                     <div class="rank-column"><%= team.rank %></div>

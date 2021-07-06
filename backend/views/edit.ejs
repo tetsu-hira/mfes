@@ -17,13 +17,13 @@
       </div>
       <div class="item-form-wrapper">
         <p class="form-label">court</p>
-        <select name="court" class="CourtNum">
-          <% courts.forEach((court) => { %>
-            <option hidden>選択</option>
-            <option><%= court.number %></option>
-          <% }) %> 
-        </select>
-        <form>
+        <form action="/update/<%= items.id %>" method="post">
+          <select name="itemName" class="CourtNum">
+            <% courts.forEach((court) => { %>
+              <option hidden>選択</option>
+              <option><%= court.number %></option>
+            <% }) %> 
+          </select>
           <input type="submit" value="更新する">
         </form>
       </div>

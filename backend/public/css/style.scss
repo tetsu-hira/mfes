@@ -205,7 +205,7 @@ header {
   margin-right: auto;
 }
 .court-column {
-  width: 96px;
+  width: 80px;
   text-align: center;
 }
 .point-column {
@@ -250,6 +250,12 @@ header {
       display: flex;
       justify-content: flex-end;
       margin-left: auto;
+      .court-column {
+        font-size: 14px;
+        font-weight: 500;
+        color: #8491a5;
+        width: 72px;
+      }
       .point-column {
         font-size: 14px;
         font-weight: 500;

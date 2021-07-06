@@ -230,7 +230,7 @@ header {
 }
 
 .court-column {
-  width: 96px;
+  width: 80px;
   text-align: center;
 }
 
@@ -296,6 +296,13 @@ header {
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-left: auto;
+}
+
+.table-body li .flex-right .court-column {
+  font-size: 14px;
+  font-weight: 500;
+  color: #8491a5;
+  width: 72px;
 }
 
 .table-body li .flex-right .point-column {

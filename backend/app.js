@@ -74,7 +74,7 @@ app.get('/match', (req, res) => {
   res.render('match.ejs');
 });
 
-// DBに追加するルーティングを用意する
+// DBに追加するルーティング
 app.post('/create', (req, res) => {
   // DBに追加する処理
   connection.query(
@@ -88,11 +88,11 @@ app.post('/create', (req, res) => {
   
 });
 
-// DBから削除するルーティングを用意する
+// DBから削除するルーティング
 app.post('/delete/:id', (req,res) => {
   // 処理
   connection.query(
-    'DELETE FROM court WHERE id = ?',
+    'UPDATE team SET court = NULL WHERE id = ?',
     [ req.params.id ],
     (error,results) => {
       // 一覧画面にリダイレクトする処理
@@ -115,7 +115,7 @@ app.get('/edit/:id', (req, res) => {
 // DBを更新するルーティング
 app.post('/update/:id', (req, res) => {
   connection.query(
-    'UPDATE team SET name = ? WHERE id = ?',
+    'UPDATE team SET court = ? WHERE id = ?',
     [ req.body.itemName, req.params.id ],
     (error, results) => {
       res.redirect('/index');
