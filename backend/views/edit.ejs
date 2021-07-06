@@ -12,13 +12,18 @@
     </header>
     <div class="container">
       <div class="container-header">
-        <h1>edit name</h1>
+        <h1>edit court</h1>
         <a href="/index" class="cancel-button">cancel</a>
       </div>
       <div class="item-form-wrapper">
-        <p class="form-label">name</p>
-        <form action="/update/<%=item.id%>" method="post">
-          <input value="<%= item.name %>" type="text" name="itemName">
+        <p class="form-label">court</p>
+        <select name="court" class="CourtNum">
+          <% courts.forEach((court) => { %>
+            <option hidden>選択</option>
+            <option><%= court.number %></option>
+          <% }) %> 
+        </select>
+        <form>
           <input type="submit" value="更新する">
         </form>
       </div>

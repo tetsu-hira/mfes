@@ -15,13 +15,14 @@
       <div class="Index__container">
         <div class="container-header">
           <h1>Participation</h1>
-          <a href="/match" class="newMatch">matche</a>
+          <a href="/match" class="newMatch">matche⤴</a>
           <a href="/new" class="newTeam">+ 新規追加</a>
         </div>
         <div class="index-table-wrapper">
           <div class="table-head">
             <div class="id-column">ID</div>
             <div class="name-column">name</div>
+            <div class="court-column">court</div>
             <div class="point-column">point</div>
             <div class="score-column">score</div>
             <div class="rank-column">rank</div>
@@ -35,6 +36,12 @@
                     <div class="name-column"><%= team.name %></div>
                   </div>
                   <div class="flex-right">
+                    <select name="court" class="SelectCourt">
+                      <% courts.forEach((court) => { %>
+                        <option hidden>選択</option>
+                        <option><%= court.number %></option>
+                      <% }) %> 
+                    </select>
                     <div class="point-column"><%= team.point %></div>
                     <div class="score-column"><%= team.score %></div>
                     <div class="rank-column"><%= team.rank %></div>
