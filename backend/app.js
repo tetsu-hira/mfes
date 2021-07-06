@@ -1,7 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-// const select1 = document.getElementById('select1');
+// 選択されたチーム名を受け取る
+// const team1 = document.getElementById('select1').value;
 
 const corsOptions = {
   origin: 'http://example.com',
@@ -27,7 +28,8 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'heirinmou',
-  database: 'mfes'
+  database: 'mfes',
+  multipleStatements: true // 複数のステートメントを有効にする
 });
 
 app.get('/', (req, res) => {
@@ -36,13 +38,25 @@ app.get('/', (req, res) => {
 
 app.get('/index', (req, res) => {
   connection.query(
-    'SELECT * FROM team',
+    'SELECT * FROM team; SELECT * FROM court',
     (error, results) => {
-      console.log(results);
-      res.render('index.ejs', {items: results});
+      console.log(results[0]);
+      console.log(results[1]);
+      res.render('index.ejs', {items: results[0], courts: results[1]});
     }
   );
 });
+app.get('/edit/*', (req, res) => {
+  connection.query(
+    'SELECT * FROM team; SELECT * FROM court',
+    (error, results) => {
+      console.log(results[0]);
+      console.log(results[1]);
+      res.render('edit.ejs', {items: results[0], courts: results[1]});
+    }
+  );
+});
+
 app.get('/match', (req, res) => {
   connection.query(
     'SELECT * FROM team',
@@ -67,7 +81,7 @@ app.post('/create', (req, res) => {
     'INSERT INTO team(name)VALUES(?)',
     [req.body.itemName],
     (error, results) => {
-      // 一覧画面を表示する処理
+      // 一覧画面にリダイレクトする処理
       res.redirect('/index');
     }
   );
@@ -78,7 +92,7 @@ app.post('/create', (req, res) => {
 app.post('/delete/:id', (req,res) => {
   // 処理
   connection.query(
-    'DELETE FROM team WHERE id = ?',
+    'DELETE FROM court WHERE id = ?',
     [ req.params.id ],
     (error,results) => {
       // 一覧画面にリダイレクトする処理
@@ -88,18 +102,18 @@ app.post('/delete/:id', (req,res) => {
 });
 
 // DBを編集するルーティング
-app.get('/edit/:id',(req,res) => {
+app.get('/edit/:id', (req, res) => {
   connection.query(
     'SELECT * FROM team WHERE id = ?',
     [ req.params.id ],
-    (error,results) => {
+    (error, results) => {
       res.render('edit.ejs', {item: results[0]});
     }
   );
 });
 
 // DBを更新するルーティング
-app.post('/update/:id', (req,res) => {
+app.post('/update/:id', (req, res) => {
   connection.query(
     'UPDATE team SET name = ? WHERE id = ?',
     [ req.body.itemName, req.params.id ],
@@ -109,10 +123,5 @@ app.post('/update/:id', (req,res) => {
   );
 });
 
-// テスト
-app.get('/todolist', (req, res) => {
-  res.render('todolist.ejs');
-});
-// テストここまで
 
 app.listen(3000);
