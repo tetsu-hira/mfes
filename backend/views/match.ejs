@@ -21,28 +21,38 @@
             <tr class="top-tr">
               <th class="team-title">team</th>
               <td class="opponent-name">
-                <div class="MatchTable__selectName"><%=  %> </div>
+                <% const A1Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-1') return true;
+                }); %>
+                <p><%= A1Court[0].name %></p>
               </td>
               <td class="opponent-name">
-                
+                <% const A2Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-2') return true;
+                }); %>
+                <p><%= A2Court[0].name %></p>
               </td>
               <td class="opponent-name">
-                
+                <% const A3Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-3') return true;
+                }); %>
+                <p><%= A3Court[0].name %></p>
               </td>
               <td class="opponent-name">
-                
+                <% const A4Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-4') return true;
+                }); %>
+                <p><%= A4Court[0].name %></p>
               </td>
               <th class="point-title">point</th>
               <th class="score-title">score</th>
             </tr>
             <tr class="result-cells">
               <td class="self-name">
-                <select name="team" id="select1" class="MatchTable__team">
-                  <% items.forEach((team) => { %>
-                    <option hidden>選択してください</option>
-                    <option value="select1"><%= team.name %></option>
-                  <% }) %> 
-                </select>
+                <% const A1 = teams.filter(function(item, index) {
+                  if (item.court == 'A-1') return true;
+                }); %>
+                <p><%= A1[0].name %></p>
               </td>
               <td id="cell_1_1"></td>
               <td id="cell_1_2"></td>
@@ -53,12 +63,10 @@
             </tr>
             <tr class="result-cells">
               <td class="self-name">
-                <select name="team" id="select2" class="MatchTable__team">
-                  <% items.forEach((team) => { %>
-                    <option hidden>選択してください</option>
-                    <option value="select2"><%= team.name %></option>
-                  <% }) %> 
-                </select>
+                <% const A2 = teams.filter(function(item, index) {
+                  if (item.court == 'A-2') return true;
+                }); %>
+                <p><%= A2[0].name %></p>
               </td>
               <td id="cell_2_1"></td>
               <td id="cell_2_2"></td>
@@ -69,12 +77,10 @@
             </tr>
             <tr class="result-cells">
               <td class="self-name">
-                <select name="team" id="select3" class="MatchTable__team">
-                  <% items.forEach((team) => { %>
-                    <option hidden>選択してください</option>
-                    <option value="select3"><%= team.name %></option>
-                  <% }) %> 
-                </select>
+                <% const A3 = teams.filter(function(item, index) {
+                  if (item.court == 'A-3') return true;
+                }); %>
+                <p><%= A3[0].name %></p>
               </td>
               <td id="cell_3_1"></td>
               <td id="cell_3_2"></td>
@@ -85,12 +91,10 @@
             </tr>
             <tr class="result-cells">
               <td class="self-name">
-                <select name="team" id="select4" class="MatchTable__team">
-                  <% items.forEach((team) => { %>
-                    <option hidden>選択してください</option>
-                    <option value="select4"><%= team.name %></option>
-                  <% }) %> 
-                </select>
+                <% const A4 = teams.filter(function(item, index) {
+                  if (item.court == 'A-4') return true;
+                }); %>
+                <p><%= A4[0].name %></p>
               </td>
               <td id="cell_4_1"></td>
               <td id="cell_4_2"></td>

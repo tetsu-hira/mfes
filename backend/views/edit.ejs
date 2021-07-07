@@ -17,14 +17,14 @@
       </div>
       <div class="item-form-wrapper">
         <p class="form-label">court</p>
-        <form action="/update/<%= items.id %>" method="post">
-          <select name="itemName" class="CourtNum">
+        <form action="/update/<%= teams[0].id %>" method="post">
+          <select class="CourtNum" name="itemName">
             <% courts.forEach((court) => { %>
               <option hidden>選択</option>
               <option><%= court.number %></option>
             <% }) %> 
+            <input type="submit" value="更新する" >
           </select>
-          <input type="submit" value="更新する">
         </form>
       </div>
     </div>

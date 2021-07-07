@@ -11,8 +11,10 @@ const corsOptions = {
 
 
 app.use(express.static('public'));
+app.use(express.json());
 // フォームから送信された値を受け取る
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
+
 
 // CORSエラーを回避する記述ここから
 app.use(function(req, res, next) {
@@ -46,23 +48,42 @@ app.get('/index', (req, res) => {
     }
   );
 });
-app.get('/edit/*', (req, res) => {
-  connection.query(
-    'SELECT * FROM team; SELECT * FROM court',
-    (error, results) => {
-      console.log(results[0]);
-      console.log(results[1]);
-      res.render('edit.ejs', {items: results[0], courts: results[1]});
-    }
-  );
-});
 
+// DBから表に反映させるルーティング
 app.get('/match', (req, res) => {
   connection.query(
     'SELECT * FROM team',
     (error, results) => {
+      console.log("確認につかう");
       console.log(results);
-      res.render('match.ejs', {items: results});
+      res.render('match.ejs', {teams: results});
+    }
+  );
+});
+
+// DBを編集するルーティング
+app.get('/edit/:id', (req, res) => {
+  connection.query(
+    'SELECT * FROM team WHERE id = ?; SELECT * FROM court',
+    [ req.params.id ],
+    (error, results) => {
+      console.log("配列修正の結果↓");
+      console.log(results[0]);
+      console.log(results[1]);
+      res.render('edit.ejs', {teams: results[0], courts: results[1]});
+    }
+  );
+});
+// DBを更新するルーティング
+app.post('/update/:id', (req, res) => {
+  console.log("ここから結果");
+  console.log(req.params.id);
+  console.log("ここまで")
+  connection.query(
+    'UPDATE team SET court = ? WHERE id = ?',
+    [ req.body.itemName, req.params.id ],
+    (error, results) => {
+      res.redirect('/index');
     }
   );
 });
@@ -101,27 +122,6 @@ app.post('/delete/:id', (req,res) => {
   );
 });
 
-// DBを編集するルーティング
-app.get('/edit/:id', (req, res) => {
-  connection.query(
-    'SELECT * FROM team WHERE id = ?',
-    [ req.params.id ],
-    (error, results) => {
-      res.render('edit.ejs', {item: results[0]});
-    }
-  );
-});
-
-// DBを更新するルーティング
-app.post('/update/:id', (req, res) => {
-  connection.query(
-    'UPDATE team SET court = ? WHERE id = ?',
-    [ req.body.itemName, req.params.id ],
-    (error, results) => {
-      res.redirect('/index');
-    }
-  );
-});
 
 
 app.listen(3000);
