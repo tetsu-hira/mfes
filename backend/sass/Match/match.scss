@@ -1,0 +1,91 @@
+.Match {
+  &Container {
+    width: 90%;
+    min-width: 600px;
+    max-width: 960px;
+    margin: 0 auto;
+    margin-top: 56px;
+    .-header {
+      // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
+      margin: 0 0 12px;
+      h1 {
+        font-size: 24px;
+      }
+    }
+  }
+  &Table {
+    .TableTitle {
+      background-color: #b7cadc;
+      color: white;
+      font-size: 16px;
+      .-number {
+        width: 80px;
+      }
+      .-team {
+        width: 320px;
+      }
+      .-referee {
+        width: 240px;
+      }
+    }
+    .TableContent {
+      // background-color: #b7cadc;
+      color: black;
+      font-size: 16px;
+      select {
+        font-size: 24px;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 4px;
+        // border: none;
+        text-align-last:right;
+        outline: none;
+        // background: transparent;
+      }
+      .-number {
+        width: 80px;
+      }
+      .-teamA {
+        width: 320px;
+        .ContentFlex {
+          display: flex;
+          .left {
+            margin: auto;
+            font-size: 24px;
+          }
+          .right {
+            margin: auto 16px auto auto;
+            p {
+              font-size: 8px;
+            }
+          }
+        }
+      }
+      .-teamB {
+        width: 320px;
+        .ContentFlex {
+          display: flex;
+          .left {
+            margin: auto auto auto 16px;
+            p {
+              font-size: 8px;
+            }
+          }
+          .right {
+            margin: auto;
+            p {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+      .-referee {
+        width: 240px;
+      }
+    }
+  }
+}
