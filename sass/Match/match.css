@@ -1,0 +1,85 @@
+.MatchContainer {
+  width: 90%;
+  min-width: 600px;
+  max-width: 960px;
+  margin: 0 auto;
+  margin-top: 56px;
+}
+
+.MatchContainer .-header {
+  margin: 0 0 12px;
+}
+
+.MatchContainer .-header h1 {
+  font-size: 24px;
+}
+
+.MatchTable .TableTitle {
+  background-color: #b7cadc;
+  color: white;
+  font-size: 16px;
+}
+
+.MatchTable .TableTitle .-number {
+  width: 80px;
+}
+
+.MatchTable .TableTitle .-team {
+  width: 320px;
+}
+
+.MatchTable .TableTitle .-referee {
+  width: 240px;
+}
+
+.MatchTable .TableContent {
+  color: black;
+  font-size: 16px;
+}
+
+.MatchTable .TableContent select {
+  font-size: 24px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px;
+  text-align-last: right;
+  outline: none;
+}
+
+.MatchTable .TableContent .-number {
+  width: 80px;
+}
+
+.MatchTable .TableContent .-teamA {
+  width: 320px;
+}
+
+.MatchTable .TableContent .-point .ContentFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.MatchTable .TableContent .-point .ContentFlex .left {
+  margin: auto;
+  font-size: 24px;
+}
+
+.MatchTable .TableContent .-point .ContentFlex .right {
+  margin: auto 16px auto auto;
+}
+
+.MatchTable .TableContent .-point .ContentFlex .right p {
+  font-size: 8px;
+}
+
+.MatchTable .TableContent .-teamB {
+  width: 320px;
+}
+
+.MatchTable .TableContent .-referee {
+  width: 240px;
+}
+/*# sourceMappingURL=match.css.map */

@@ -21,10 +21,16 @@
           <select class="CourtNum" name="itemName">
             <% courts.forEach((court) => { %>
               <option hidden>選択</option>
+              <option><%= court.court %></option>
+            <% }) %> 
+          </select>
+          <select class="CourtNum" name="itemNum">
+            <% courts.forEach((court) => { %>
+              <option hidden>選択</option>
               <option><%= court.number %></option>
             <% }) %> 
-            <input type="submit" value="更新する" >
           </select>
+          <input type="submit" value="更新する" >
         </form>
       </div>
     </div>

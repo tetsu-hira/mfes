@@ -114,6 +114,34 @@ header {
   height: 56px;
   background-color: #ffffff;
   border-bottom: 1px solid #f0f4f9;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .nav-list {
+    line-height: 24px;
+    // float: right;
+    // margin-left: 30px;
+    list-style: none;
+    margin-left: 40px;
+    // background-color: #337079;
+    &-item {
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+      a {
+        color: #6c7686;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 16px 24px;
+        &:hover {
+          color: #ffffff;
+          background-color: #6c7686;
+        }
+      }
+    }
+}
 }
 
 .header-logo {
@@ -133,16 +161,16 @@ header {
 .container {
   width: 90%;
   min-width: 600px;
-  max-width: 1160px;
+  max-width: 1320px;
   margin: 0 auto;
-  margin-top: 56px;
+  padding-top: 72px;
 }
 .Index__container {
   width: 90%;
   min-width: 600px;
-  max-width: 760px;
+  max-width: 880px;
   margin: 0 auto;
-  margin-top: 56px;
+  padding-top: 72px;
 }
 
 .container-header {
@@ -192,34 +220,56 @@ header {
   display: flex;
   background-color: #b7cadc;
   border-radius: 2px 2px 0 0;
-  height: 44px;
+  height: 80px;
   font-size: 16px;
-  line-height: 46px;
+  line-height: 24px;
   color: #ffffff;
 }
 .id-column {
   width: 72px;
   text-align: center;
+  margin: auto 0;
 }
 .name-column {
-  margin-right: auto;
+  margin: auto auto auto 0;
 }
 .court-column {
-  width: 80px;
+  width: 72px;
+  text-align: center;
+  margin: auto 0
+}
+.preliminary {
+  width: 144px;
+  margin: auto 0;
+  text-align: center;
+}
+.midway {
+  width: 144px;
+  margin: auto 0;
+  text-align: center;
+}
+.total {
+  width: 144px;
+  margin: auto 0;
   text-align: center;
 }
 .point-column {
   width: 72px;
   text-align: center;
+  overflow-wrap: normal;
+  margin: auto;
+  float: left;
 }
 .score-column {
   width: 72px;
   text-align: center;
+  margin: auto;
+  float: right;
 }
 .rank-column {
-  width: 72px;
+  width: 120px;
   text-align: center;
-  margin-right: 120px;
+  margin: auto 0;
 }
 
 
