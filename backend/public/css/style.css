@@ -1,11 +1,10 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 100%;
-  font-family: 'Hiragino Sans', sans-serif;
+  font-family: "Hiragino Sans", sans-serif;
   line-height: 1.7;
   letter-spacing: 1px;
 }
@@ -28,9 +27,7 @@ a {
   color: #2d3133;
   font-size: 14px;
 }
-
 a:hover {
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -51,15 +48,9 @@ input {
 .top-wrapper {
   max-width: 1200px;
   min-width: 920px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   padding: 60px;
 }
@@ -69,27 +60,23 @@ input {
   min-width: 320px;
   margin-top: -40px;
 }
-
 .top-detail .subtitle {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 4px;
 }
-
 .top-detail .title {
   font-size: 54px;
   line-height: 66px;
   letter-spacing: 2px;
   margin-bottom: 24px;
 }
-
 .top-detail .description {
   font-size: 14px;
   line-height: 28px;
   letter-spacing: 0.5px;
   margin-bottom: 40px;
 }
-
 .top-detail .index-button {
   width: 184px;
   height: 48px;
@@ -101,7 +88,6 @@ input {
   border: 2px solid #58d2b2;
   border-radius: 2px;
 }
-
 .top-detail .index-button:hover {
   color: #ffffff;
   background-color: #58d2b2;
@@ -116,7 +102,6 @@ input {
   text-align: center;
   overflow: hidden;
 }
-
 .top-image img {
   width: 88%;
 }
@@ -126,6 +111,41 @@ header {
   height: 56px;
   background-color: #ffffff;
   border-bottom: 1px solid #f0f4f9;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  line-height: 24px;
+  list-style: none;
+  margin-left: 40px;
+}
+.nav-list-item {
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+.nav-list-item a {
+  color: #6c7686;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 16px 24px;
+}
+.nav-list-item a:hover {
+  color: #ffffff;
+  background-color: #6c7686;
+}
+
+.header {
+  height: 56px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f4f9;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-logo {
@@ -136,7 +156,6 @@ header {
   color: #6c7686;
   display: inline;
 }
-
 .header-logo:hover {
   color: #58d2b2;
 }
@@ -145,32 +164,47 @@ header {
 .container {
   width: 90%;
   min-width: 600px;
-  max-width: 1160px;
+  max-width: 1320px;
   margin: 0 auto;
-  margin-top: 56px;
+  padding-top: 72px;
 }
 
 .Index__container {
   width: 90%;
   min-width: 600px;
-  max-width: 760px;
+  max-width: 1040px;
   margin: 0 auto;
-  margin-top: 56px;
+  margin-bottom: 56px;
 }
 
 .container-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.container-header .newMatch {
+  width: 241px;
+  text-align: center;
+}
+.container-header .newMidway {
+  width: 241px;
+  text-align: center;
+}
+.container-header .newTeam {
+  width: 208px;
+  text-align: right;
+}
+.container-header a {
+  color: #6c7686;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 16px 24px;
+}
+.container-header a:hover {
+  background-color: #b7cadc;
+  transition: all 0.3s ease;
+}
 .container-header .new-button {
   background: #80bcff;
   border-radius: 30px;
@@ -182,14 +216,11 @@ header {
   color: #ffffff;
   border: 2px solid #80bcff;
 }
-
 .container-header .new-button:hover {
   background-color: #ffffff;
   color: #80bcff;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-
 .container-header h1 {
   font-size: 24px;
 }
@@ -202,123 +233,130 @@ header {
   text-decoration: underline;
   display: inline-block;
 }
-
 .cancel-button:hover {
   color: #80bcff;
 }
 
 /* index ================================ */
 .table-head {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background-color: #b7cadc;
   border-radius: 2px 2px 0 0;
-  height: 44px;
+  height: 80px;
   font-size: 16px;
-  line-height: 46px;
+  line-height: 24px;
   color: #ffffff;
 }
 
 .id-column {
   width: 72px;
   text-align: center;
+  margin: auto 0;
 }
 
 .name-column {
-  margin-right: auto;
+  margin: auto auto auto 0;
 }
 
 .court-column {
-  width: 80px;
+  width: 72px;
+  text-align: center;
+  margin: auto 0;
+}
+
+.preliminary {
+  width: 216px;
+  margin: auto 60px auto 0;
+  text-align: center;
+}
+
+.Flex {
+  display: flex;
+}
+
+.midway {
+  width: 216px;
+  margin: auto 0;
+  text-align: center;
+}
+
+.total {
+  width: 144px;
+  margin: auto 0;
   text-align: center;
 }
 
 .point-column {
   width: 72px;
   text-align: center;
+  overflow-wrap: normal;
+  margin: auto;
 }
 
 .score-column {
   width: 72px;
   text-align: center;
+  margin: auto;
 }
 
 .rank-column {
-  width: 72px;
+  width: 60px;
   text-align: center;
-  margin-right: 120px;
+  margin: auto 0;
 }
 
 .table-body {
   background-color: #ffffff;
 }
-
 .table-body li {
   height: 50px;
   border: 1px solid #f0f4f9;
   border-top: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .table-body li .flex-left {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
 }
-
 .table-body li .flex-left .id-column {
   font-size: 16px;
   color: #bac6d3;
   width: 72px;
 }
-
 .table-body li .flex-left .name-column {
   font-size: 14px;
   font-weight: 500;
   color: #8491a5;
   margin-right: auto;
 }
-
 .table-body li .flex-right {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   margin-left: auto;
 }
-
 .table-body li .flex-right .court-column {
   font-size: 14px;
   font-weight: 500;
   color: #8491a5;
   width: 72px;
+  font-weight: 600;
 }
-
 .table-body li .flex-right .point-column {
   font-size: 14px;
   font-weight: 500;
-  color: #8491a5;
+  color: #CB360D;
   width: 72px;
+  font-weight: 600;
 }
-
 .table-body li .flex-right .score-column {
   font-size: 14px;
   font-weight: 500;
   color: #8491a5;
   width: 72px;
+  color: #296FBC;
+  font-weight: 600;
 }
-
 .table-body li .flex-right .rank-column {
   font-size: 14px;
   font-weight: 500;
@@ -328,23 +366,17 @@ header {
 }
 
 .item-data {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
 
 .item-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .item-menu form {
   width: 60px;
   text-align: center;
 }
-
 .item-menu form input {
   font-size: 16px;
   color: #bac6d3;
@@ -357,20 +389,16 @@ header {
   outline: none;
   background: transparent;
 }
-
 .item-menu form input:hover {
   color: #ff7f8c;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-
 .item-menu a {
   width: 60px;
   font-size: 16px;
   color: #bac6d3;
   text-align: center;
 }
-
 .item-menu a:hover {
   color: #80bcff;
 }
@@ -382,8 +410,7 @@ header {
   border-radius: 0px 0px 2px 2px;
   padding: 32px;
 }
-
-.item-form-wrapper input[type="text"] {
+.item-form-wrapper input[type=text] {
   width: 100%;
   height: 40px;
   margin-top: 8px;
@@ -394,8 +421,7 @@ header {
   color: #2b546a;
   font-size: 12px;
 }
-
-.item-form-wrapper input[type="submit"] {
+.item-form-wrapper input[type=submit] {
   display: block;
   width: 120px;
   height: 45px;
@@ -409,11 +435,9 @@ header {
   outline: none;
   border: 2px solid #80bcff;
 }
-
-.item-form-wrapper input[type="submit"]:hover {
+.item-form-wrapper input[type=submit]:hover {
   background-color: #ffffff;
   color: #80bcff;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -435,7 +459,6 @@ tr {
   color: white;
   font-size: 16px;
 }
-
 .top-tr .team-title {
   width: 160px;
 }
@@ -496,4 +519,147 @@ table {
   color: #2b546a;
   font-size: 12px;
 }
-/*# sourceMappingURL=style.css.map */
+
+.match-logo {
+  margin-left: 56px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 56px;
+  color: #6c7686;
+  display: inline;
+}
+.match-logo:hover {
+  color: #58d2b2;
+}
+
+.MatchContainer {
+  width: 90%;
+  min-width: 600px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 56px;
+}
+.MatchContainer .-header {
+  margin: 0 0 12px;
+}
+.MatchContainer .-header h1 {
+  font-size: 24px;
+}
+.MatchTable .TableTitle {
+  background-color: #b7cadc;
+  color: white;
+  font-size: 16px;
+}
+.MatchTable .TableTitle .-number {
+  width: 80px;
+}
+.MatchTable .TableTitle .-team {
+  width: 320px;
+}
+.MatchTable .TableTitle .-referee {
+  width: 240px;
+}
+.MatchTable .TableContent {
+  color: black;
+  font-size: 16px;
+}
+.MatchTable .TableContent select {
+  font-size: 24px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px;
+  text-align-last: right;
+  outline: none;
+}
+.MatchTable .TableContent .-number {
+  width: 80px;
+}
+.MatchTable .TableContent .-teamA {
+  width: 320px;
+  font-size: 24px;
+}
+.MatchTable .TableContent .-point .ContentFlex {
+  display: flex;
+}
+.MatchTable .TableContent .-point .ContentFlex .left {
+  margin: 0 8px 8px;
+}
+.MatchTable .TableContent .-point .ContentFlex .right {
+  margin: 0 8px 8px;
+}
+.MatchTable .TableContent .-point .ContentFlex p {
+  font-size: 8px;
+}
+.MatchTable .TableContent .-point .ContentFlex select {
+  border-radius: 20px;
+  padding-right: 6px;
+}
+.MatchTable .TableContent .-point input[type=submit] {
+  display: block;
+  width: 60%;
+  height: auto;
+  margin: 0 auto 4px;
+  border-radius: 30px;
+  font-size: 14px;
+  background-color: #b7cadc;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #b7cadc;
+}
+.MatchTable .TableContent .-point input[type=submit]:hover {
+  background-color: #ffffff;
+  color: #b7cadc;
+  transition: all 0.3s ease;
+}
+.MatchTable .TableContent .-teamB {
+  width: 320px;
+  font-size: 24px;
+}
+.MatchTable .TableContent .-referee {
+  width: 240px;
+}
+
+.Edit .container {
+  width: 90%;
+  width: 600px;
+  margin: 0 auto 0 56px;
+  padding-top: 72px;
+}
+.Edit .container .container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+}
+.Edit .container .container-header h1 {
+  width: 240px;
+}
+.Edit .container .container-header a {
+  text-decoration: none;
+  width: 0;
+  margin: auto 40px auto auto;
+}
+.Edit .container .container-header a:hover {
+  background-color: transparent;
+}
+.Edit .container input[type=submit] {
+  display: block;
+  width: 500px;
+  height: 40px;
+  margin: 22px auto 0;
+  border-radius: 30px;
+  font-size: 14px;
+  background-color: #80bcff;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #80bcff;
+}
+.Edit .container input[type=submit]:hover {
+  background-color: #ffffff;
+  color: #80bcff;
+  transition: all 0.3s ease;
+}

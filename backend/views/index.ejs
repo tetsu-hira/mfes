@@ -4,28 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>U-100/T-140</title>
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-    <header>
-      <a href="/" class="header-logo">LIST APP</a>
-    </header>
+    <!-- <div class="header">
+      <a href="/" class="header-logo">LIST APP⤴</a>
+    </div> -->
     <main class="main">
       <div class="Index__container">
         <div class="container-header">
           <h1>Participation</h1>
-          <a href="/match" class="newMatch">matche⤴</a>
-          <a href="/new" class="newTeam">+ 新規追加</a>
+          <ul class="nav-list">
+            <li class="nav-list-item">
+              <a href="/match" class="newMatch">予選リーグ入力⤴</a>
+            </li>
+            <li class="nav-list-item">
+              <a href="/midway" class="newMidway">中間リーグ入力⤴</a>
+            </li>
+            <li class="nav-list-item">
+              <a href="/new" class="newTeam">+ チーム追加</a>
+            </li>
         </div>
         <div class="index-table-wrapper">
           <div class="table-head">
             <div class="id-column">ID</div>
             <div class="name-column">name</div>
-            <div class="court-column">court</div>
-            <div class="point-column">point</div>
-            <div class="score-column">score</div>
-            <div class="rank-column">rank</div>
+            <div class="preliminary">
+              <p>予選リーグ</p>
+              <div class="Flex">
+                <div class="court-column">コート</div>
+                <div class="point-column">P</div>
+                <div class="score-column">S</div>
+              </div>
+            </div>
+            <div class="midway">
+              <p>中間リーグ</p>
+              <div class="Flex">
+                <div class="court-column">コート</div>
+                <div class="point-column">P</div>
+                <div class="score-column">S</div>
+              </div>
+            </div>
+            <div class="total">
+              <p>総合結果</p>
+              <div class="Flex">
+                <div class="point-column">P</div>
+                <div class="score-column">S</div>
+              </div>
+            </div>
+            <div class="rank-column"></div>
           </div>
           <ul class="table-body">
             <% items.forEach((team) => { %>
@@ -36,15 +64,24 @@
                     <div class="name-column"><%= team.name %></div>
                   </div>
                   <div class="flex-right">
-                    <div class="court-column"><%= team.court %></div>
-                    <div class="point-column"><%= team.point %></div>
-                    <div class="score-column"><%= team.score %></div>
-                    <div class="rank-column"><%= team.rank %></div>
+                    <div class="item-menu">
+                      <a href="/edit/<%= team.id %>">編集</a>
+                    </div>
+                    <div class="court-column"><%= team.court + "-" + team.number %></div>
+                    <div class="point-column"><%= team.pre_point %></div>
+                    <div class="score-column"><%= team.pre_score %></div>
+                    <div class="item-menu">
+                      <a href="/edit2/<%= team.id %>">編集</a>
+                    </div>
+                    <div class="court-column"><%= team.mid_court + "-" + team.mid_number %></div>
+                    <div class="point-column"><%= team.mid_point %></div>
+                    <div class="score-column"><%= team.mid_score %></div>
+                    <div class="point-column"><%= team.sum_point %></div>
+                    <div class="score-column"><%= team.sum_score %></div>
                     <div class="item-menu">
                       <form action="/delete/<%= team.id %>" method="post">
                         <input type="submit" value="削除">
                       </form>
-                      <a href="/edit/<%= team.id %>">編集</a>
                     </div>
                   </div>
                 </div>

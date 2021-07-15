@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>U-100/T-140</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/send_url.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="header-logo">LIST APP</a>
+    </header>
+    <main class="Edit">
+      <div class="container">
+        <div class="container-header">
+          <h1>edit court</h1>
+          <a href="/index" class="cancel-button">cancel</a>
+        </div>
+        <div class="item-form-wrapper">
+          <p class="form-label">【<%= teams[0].name %>】のコートと番号を入力してください</p>
+          <form action="/update2/<%= teams[0].id %>" method="post">
+            <select class="CourtNum" name="itemName">
+              <% courts.forEach((court) => { %>
+                <option hidden>選択</option>
+                <option><%= court.court %></option>
+              <% }) %> 
+            </select>
+            <select class="CourtNum" name="itemNum">
+              <% courts.forEach((court) => { %>
+                <option hidden>選択</option>
+                <option><%= court.number %></option>
+              <% }) %> 
+            </select>
+            <input type="submit" value="ENTER" >
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

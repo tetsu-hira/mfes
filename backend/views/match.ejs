@@ -4,263 +4,508 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>match</title>
+    <title>U-100/T-140</title>
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     <header>
-      <a href="/" class="header-logo">LIST APP</a>
+      <a href="/index" class="match-logo">LIST APP⤴</a>
+      <ul class="nav-list">
+        <li class="nav-list-item">
+          <a href="#Participation_a">Aコート</a>
+        </li>
+        <li class="nav-list-item">
+          <a href="#Participation_b">Bコート</a>
+        </li>
+        <li class="nav-list-item">
+          <a href="#Participation_c">Cコート</a>
+        </li>
+        <li class="nav-list-item">
+          <a href="#Participation_d">Dコート</a>
+        </li>
+      </ul>
     </header>
-    <main class="main">
-      <div class="container">
-        <div class="container-header">
-          <h1>Participation_A</h1>
-        </div>
-        <div class="league-table">
-          <table border="2" bordercolor="black" style="border-collapse: collapse;">
-            <tr class="top-tr">
-              <th class="team-title">team</th>
-              <td class="opponent-name">
-                <% const A1Court = teams.filter(function(item, index) {
-                  if (item.court == 'A-1') return true;
-                }); %>
-                <p><%= A1Court[0].name %></p>
-              </td>
-              <td class="opponent-name">
-                <% const A2Court = teams.filter(function(item, index) {
-                  if (item.court == 'A-2') return true;
-                }); %>
-                <p><%= A2Court[0].name %></p>
-              </td>
-              <td class="opponent-name">
-                <% const A3Court = teams.filter(function(item, index) {
-                  if (item.court == 'A-3') return true;
-                }); %>
-                <p><%= A3Court[0].name %></p>
-              </td>
-              <td class="opponent-name">
-                <% const A4Court = teams.filter(function(item, index) {
-                  if (item.court == 'A-4') return true;
-                }); %>
-                <p><%= A4Court[0].name %></p>
-              </td>
-              <th class="point-title">point</th>
-              <th class="score-title">score</th>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name">
-                <% const A1 = teams.filter(function(item, index) {
-                  if (item.court == 'A-1') return true;
-                }); %>
-                <p><%= A1[0].name %></p>
-              </td>
-              <td id="cell_1_1"></td>
-              <td id="cell_1_2"></td>
-              <td id="cell_1_3"></td>
-              <td id="cell_1_4"></td>
-              <td class="point_1"></td>
-              <td class="score_1"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name">
-                <% const A2 = teams.filter(function(item, index) {
-                  if (item.court == 'A-2') return true;
-                }); %>
-                <p><%= A2[0].name %></p>
-              </td>
-              <td id="cell_2_1"></td>
-              <td id="cell_2_2"></td>
-              <td id="cell_2_3"></td>
-              <td id="cell_2_4"></td>
-              <td class="point_2"></td>
-              <td class="score_2"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name">
-                <% const A3 = teams.filter(function(item, index) {
-                  if (item.court == 'A-3') return true;
-                }); %>
-                <p><%= A3[0].name %></p>
-              </td>
-              <td id="cell_3_1"></td>
-              <td id="cell_3_2"></td>
-              <td id="cell_3_3"></td>
-              <td id="cell_3_4"></td>
-              <td class="point_3"></td>
-              <td class="score_3"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name">
-                <% const A4 = teams.filter(function(item, index) {
-                  if (item.court == 'A-4') return true;
-                }); %>
-                <p><%= A4[0].name %></p>
-              </td>
-              <td id="cell_4_1"></td>
-              <td id="cell_4_2"></td>
-              <td id="cell_4_3"></td>
-              <td id="cell_4_4"></td>
-              <td class="point_4"></td>
-              <td class="score_4"></td>
-            </tr>
-          </table>
-        </div>
-        <div class="container-header">
-          <h1>Participation_B</h1>
-        </div>
-        <div class="league-table">
-          <table border="2" bordercolor="black" style="border-collapse: collapse;">
-            <tr class="top-tr">
-              <th class="team-title">team</th>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <th class="point-title">point</th>
-              <th class="score-title">score</th>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_1_1"></td>
-              <td id="cell_1_2"></td>
-              <td id="cell_1_3"></td>
-              <td id="cell_1_4"></td>
-              <td class="point_1"></td>
-              <td class="score_1"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_2_1"></td>
-              <td id="cell_2_2"></td>
-              <td id="cell_2_3"></td>
-              <td id="cell_2_4"></td>
-              <td class="point_2"></td>
-              <td class="score_2"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_3_1"></td>
-              <td id="cell_3_2"></td>
-              <td id="cell_3_3"></td>
-              <td id="cell_3_4"></td>
-              <td class="point_3"></td>
-              <td class="score_3"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_4_1"></td>
-              <td id="cell_4_2"></td>
-              <td id="cell_4_3"></td>
-              <td id="cell_4_4"></td>
-              <td class="point_4"></td>
-              <td class="score_4"></td>
-            </tr>
-          </table>
-        </div>
-        <div class="container-header">
-          <h1>Participation_C</h1>
-        </div>
-        <div class="league-table">
-          <table border="2" bordercolor="black" style="border-collapse: collapse;">
-            <tr class="top-tr">
-              <th class="team-title">team</th>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <th class="point-title">point</th>
-              <th class="score-title">score</th>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_1_1"></td>
-              <td id="cell_1_2"></td>
-              <td id="cell_1_3"></td>
-              <td id="cell_1_4"></td>
-              <td class="point_1"></td>
-              <td class="score_1"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_2_1"></td>
-              <td id="cell_2_2"></td>
-              <td id="cell_2_3"></td>
-              <td id="cell_2_4"></td>
-              <td class="point_2"></td>
-              <td class="score_2"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_3_1"></td>
-              <td id="cell_3_2"></td>
-              <td id="cell_3_3"></td>
-              <td id="cell_3_4"></td>
-              <td class="point_3"></td>
-              <td class="score_3"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_4_1"></td>
-              <td id="cell_4_2"></td>
-              <td id="cell_4_3"></td>
-              <td id="cell_4_4"></td>
-              <td class="point_4"></td>
-              <td class="score_4"></td>
-            </tr>
-          </table>
-        </div>
-        <div class="container-header">
-          <h1>Participation_D</h1>
-        </div>
-        <div class="league-table">
-          <table border="2" bordercolor="black" style="border-collapse: collapse;">
-            <tr class="top-tr">
-              <th class="team-title">team</th>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <td class="opponent-name"></td>
-              <th class="point-title">point</th>
-              <th class="score-title">score</th>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_1_1"></td>
-              <td id="cell_1_2"></td>
-              <td id="cell_1_3"></td>
-              <td id="cell_1_4"></td>
-              <td class="point_1"></td>
-              <td class="score_1"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_2_1"></td>
-              <td id="cell_2_2"></td>
-              <td id="cell_2_3"></td>
-              <td id="cell_2_4"></td>
-              <td class="point_2"></td>
-              <td class="score_2"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_3_1"></td>
-              <td id="cell_3_2"></td>
-              <td id="cell_3_3"></td>
-              <td id="cell_3_4"></td>
-              <td class="point_3"></td>
-              <td class="score_3"></td>
-            </tr>
-            <tr class="result-cells">
-              <td class="self-name"></td>
-              <td id="cell_4_1"></td>
-              <td id="cell_4_2"></td>
-              <td id="cell_4_3"></td>
-              <td id="cell_4_4"></td>
-              <td class="point_4"></td>
-              <td class="score_4"></td>
-            </tr>
-          </table>
-        </div>
+    <main class="Match">
+      <div class="MatchContainer">
+        <% courts.forEach((court) => { %>
+          <div class="MatchContainer -header">
+            <a id="Participation_<%= court.court %>"></a>
+            <h1>Participation_<%= court.court %></h1>
+          </div>
+          <div class="MatchTable">
+            <table border="2" bordercolor="black" style="border-collapse: collapse;">
+              <tr class="TableTitle">
+                <th class="TableTitle -number">No.</th>
+                <th class="TableTitle -team">TeamA</th>
+                <th class="TableTitle -point">Point</th>
+                <th class="TableTitle -team">TeamB</th>
+                <th class="TableTitle -space"></th>
+                <th class="TableTitle -referee">Referee</th>
+              </tr>
+              <tr class="TableContent">
+                <th class="TableContent -number">1</th>
+                <td class="TableContent -teamA">
+                  <% const A1 = teams.filter(function(item, index) {
+                    if (item.court == court.court && item.number == 1) return true;
+                  }) %>
+                  <p><%= A1[0].name %> </p>
+                </td>
+                <td class="TableContent -point">
+                  <form action="/entry/<%= court.court %>1" method="post">
+                    <% console.log(court.number); %> 
+                    <div class="ContentFlex">
+                      <div class="left">
+                        <p>1set</p>
+                        <select name="result1" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 0].result1 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result2" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 0].result2 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                      <div class="right">
+                        <p>1set</p>
+                        <select name="result3" id="">
+                          <option hidden><%= games[(court.number - 1) * 4 + 0].result3 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result4" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 0].result4 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                    </div>
+                    <input type="submit" value="PUSH">
+                  </form>
+                </td>
+                <td class="TableContent -teamB">
+                  <% const A2 = teams.filter(function(item, index) {
+                    if (item.court == court.court && item.number == 2) return true;
+                  }) %>
+                  <p><%= A2[0].name %></p>
+                </td>
+                <td class="TableContent -space"></td>
+                <th class="TableContent -referee">
+                  <% const A4 = teams.filter(function(item, index) {
+                    if (item.court == court.court && item.number == 4) return true;
+                  }) %>
+                  <p><%= A4[0].name %> </p>
+                </th>
+              </tr>
+              <tr class="TableContent">
+                <th class="TableContent -number">2</th>
+                <td class="TableContent -teamA">
+                  <% const A3 = teams.filter(function(item, index) {
+                    if (item.court == court.court && item.number == 3) return true;
+                  }) %>
+                  <p><%= A3[0].name %> </p>
+                </td>
+                <td class="TableContent -point">
+                  <form action="/entry/<%= court.court %>2" method="post">
+                    <div class="ContentFlex">
+                      <div class="left">
+                        <p>1set</p>
+                        <select name="result1" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 1].result1 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result2" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 1].result2 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                      <div class="right">
+                        <p>1set</p>
+                        <select name="result3" id="">
+                          <option hidden><%= games[(court.number - 1) * 4 + 1].result3 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result4" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 1].result4 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                    </div>
+                    <input type="submit" value="PUSH">
+                  </form>
+                </td>
+                <td class="TableContent -teamB">
+                  <p><%= A4[0].name %> </p>
+                </td>
+                <td class="TableContent -space"></td>
+                <th class="TableContent -referee">
+                  <p><%= A1[0].name %></p>
+                </th>
+              </tr>
+              <tr class="TableContent">
+                <th class="TableContent -number">3</th>
+                <td class="TableContent -teamA">
+                  <p><%= A1[0].name %></p>
+                </td>
+                <td class="TableContent -point">
+                  <form action="/entry/<%= court.court %>3" method="post">
+                    <div class="ContentFlex">
+                      <div class="left">
+                        <p>1set</p>
+                        <select name="result1" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 2].result1 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result2" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 2].result2 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                      <div class="right">
+                        <p>1set</p>
+                        <select name="result3" id="">
+                          <option hidden><%= games[(court.number - 1) * 4 + 2].result3 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result4" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 2].result4 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                    </div>
+                    <input type="submit" value="PUSH">
+                  </form>
+                </td>
+                <td class="TableContent -teamB">
+                  <p><%= A3[0].name %></p>
+                </td>
+                <td class="TableContent -space"></td>
+                <th class="TableContent -referee">
+                  <p><%= A2[0].name %></p>
+                </th>
+              </tr>
+              <tr class="TableContent">
+                <th class="TableContent -number">4</th>
+                <td class="TableContent -teamA">
+                  <p><%= A2[0].name %></p>
+                </td>
+                <td class="TableContent -point">
+                  <form action="/entry/<%= court.court %>4" method="post">
+                    <div class="ContentFlex">
+                      <div class="left">
+                        <p>1set</p>
+                        <select name="result1" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 3].result1 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result2" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 3].result2 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                      <div class="right">
+                        <p>1set</p>
+                        <select name="result3" id="">
+                          <option hidden><%= games[(court.number - 1) * 4 + 3].result3 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        <p>2set</p>
+                        <select name="result4" id="select">
+                          <option hidden><%= games[(court.number - 1) * 4 + 3].result4 %></option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                      </div>
+                    </div>
+                    <input type="submit" value="PUSH">
+                  </form>
+                </td>
+                <td class="TableContent -teamB">
+                  <p><%= A4[0].name %></p>
+                </td>
+                <td class="TableContent -space"></td>
+                <th class="TableContent -referee">
+                  <p><%= A3[0].name %></p>
+                </th>
+              </tr>
+            </table>
+          </div>
+        <% }) %> 
       </div>
     </main>
   </body>

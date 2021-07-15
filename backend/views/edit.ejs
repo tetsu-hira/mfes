@@ -10,23 +10,31 @@
     <header>
       <a href="/" class="header-logo">LIST APP</a>
     </header>
-    <div class="container">
-      <div class="container-header">
-        <h1>edit court</h1>
-        <a href="/index" class="cancel-button">cancel</a>
+    <main class="Edit">
+      <div class="container">
+        <div class="container-header">
+          <h1>edit court</h1>
+          <a href="/index" class="cancel-button">cancel</a>
+        </div>
+        <div class="item-form-wrapper">
+          <p class="form-label">【<%= teams[0].name %>】のコートと番号を入力してください</p>
+          <form action="/update/<%= teams[0].id %>" method="post">
+            <select class="CourtNum" name="itemName">
+              <% courts.forEach((court) => { %>
+                <option hidden>選択</option>
+                <option><%= court.court %></option>
+              <% }) %> 
+            </select>
+            <select class="CourtNum" name="itemNum">
+              <% courts.forEach((court) => { %>
+                <option hidden>選択</option>
+                <option><%= court.number %></option>
+              <% }) %> 
+            </select>
+            <input type="submit" value="ENTER" >
+          </form>
+        </div>
       </div>
-      <div class="item-form-wrapper">
-        <p class="form-label">court</p>
-        <form action="/update/<%= teams[0].id %>" method="post">
-          <select class="CourtNum" name="itemName">
-            <% courts.forEach((court) => { %>
-              <option hidden>選択</option>
-              <option><%= court.number %></option>
-            <% }) %> 
-            <input type="submit" value="更新する" >
-          </select>
-        </form>
-      </div>
-    </div>
+    </main>
   </body>
 </html>

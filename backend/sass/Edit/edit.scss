@@ -1,0 +1,43 @@
+.Edit {
+  .container {
+    width: 90%;
+    width: 600px;
+    margin: 0 auto 0 56px;
+    padding-top: 72px;
+    .container-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+      h1 {
+        width: 240px;
+      }
+      a {
+        text-decoration: none;
+        width: 0;
+        margin: auto 40px auto auto;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+    input[type="submit"] {
+      display: block;
+      width: 500px;
+      height: 40px;
+      margin: 22px auto 0;
+      border-radius: 30px;
+      font-size: 14px;
+      background-color: #80bcff;
+      color: #ffffff;
+      cursor: pointer;
+      outline: none;
+      border: 1px solid #80bcff;
+      &:hover {
+        background-color: #ffffff;
+        color: #80bcff;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
