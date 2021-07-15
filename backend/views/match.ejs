@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>match</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <a href="/" class="header-logo">LIST APP</a>
+    </header>
+    <main class="main">
+      <div class="container">
+        <div class="container-header">
+          <h1>Participation_A</h1>
+        </div>
+        <div class="league-table">
+          <table border="2" bordercolor="black" style="border-collapse: collapse;">
+            <tr class="top-tr">
+              <th class="team-title">team</th>
+              <td class="opponent-name">
+                <% const A1Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-1') return true;
+                }); %>
+                <p><%= A1Court[0].name %></p>
+              </td>
+              <td class="opponent-name">
+                <% const A2Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-2') return true;
+                }); %>
+                <p><%= A2Court[0].name %></p>
+              </td>
+              <td class="opponent-name">
+                <% const A3Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-3') return true;
+                }); %>
+                <p><%= A3Court[0].name %></p>
+              </td>
+              <td class="opponent-name">
+                <% const A4Court = teams.filter(function(item, index) {
+                  if (item.court == 'A-4') return true;
+                }); %>
+                <p><%= A4Court[0].name %></p>
+              </td>
+              <th class="point-title">point</th>
+              <th class="score-title">score</th>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name">
+                <% const A1 = teams.filter(function(item, index) {
+                  if (item.court == 'A-1') return true;
+                }); %>
+                <p><%= A1[0].name %></p>
+              </td>
+              <td id="cell_1_1"></td>
+              <td id="cell_1_2"></td>
+              <td id="cell_1_3"></td>
+              <td id="cell_1_4"></td>
+              <td class="point_1"></td>
+              <td class="score_1"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name">
+                <% const A2 = teams.filter(function(item, index) {
+                  if (item.court == 'A-2') return true;
+                }); %>
+                <p><%= A2[0].name %></p>
+              </td>
+              <td id="cell_2_1"></td>
+              <td id="cell_2_2"></td>
+              <td id="cell_2_3"></td>
+              <td id="cell_2_4"></td>
+              <td class="point_2"></td>
+              <td class="score_2"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name">
+                <% const A3 = teams.filter(function(item, index) {
+                  if (item.court == 'A-3') return true;
+                }); %>
+                <p><%= A3[0].name %></p>
+              </td>
+              <td id="cell_3_1"></td>
+              <td id="cell_3_2"></td>
+              <td id="cell_3_3"></td>
+              <td id="cell_3_4"></td>
+              <td class="point_3"></td>
+              <td class="score_3"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name">
+                <% const A4 = teams.filter(function(item, index) {
+                  if (item.court == 'A-4') return true;
+                }); %>
+                <p><%= A4[0].name %></p>
+              </td>
+              <td id="cell_4_1"></td>
+              <td id="cell_4_2"></td>
+              <td id="cell_4_3"></td>
+              <td id="cell_4_4"></td>
+              <td class="point_4"></td>
+              <td class="score_4"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="container-header">
+          <h1>Participation_B</h1>
+        </div>
+        <div class="league-table">
+          <table border="2" bordercolor="black" style="border-collapse: collapse;">
+            <tr class="top-tr">
+              <th class="team-title">team</th>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <th class="point-title">point</th>
+              <th class="score-title">score</th>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_1_1"></td>
+              <td id="cell_1_2"></td>
+              <td id="cell_1_3"></td>
+              <td id="cell_1_4"></td>
+              <td class="point_1"></td>
+              <td class="score_1"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_2_1"></td>
+              <td id="cell_2_2"></td>
+              <td id="cell_2_3"></td>
+              <td id="cell_2_4"></td>
+              <td class="point_2"></td>
+              <td class="score_2"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_3_1"></td>
+              <td id="cell_3_2"></td>
+              <td id="cell_3_3"></td>
+              <td id="cell_3_4"></td>
+              <td class="point_3"></td>
+              <td class="score_3"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_4_1"></td>
+              <td id="cell_4_2"></td>
+              <td id="cell_4_3"></td>
+              <td id="cell_4_4"></td>
+              <td class="point_4"></td>
+              <td class="score_4"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="container-header">
+          <h1>Participation_C</h1>
+        </div>
+        <div class="league-table">
+          <table border="2" bordercolor="black" style="border-collapse: collapse;">
+            <tr class="top-tr">
+              <th class="team-title">team</th>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <th class="point-title">point</th>
+              <th class="score-title">score</th>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_1_1"></td>
+              <td id="cell_1_2"></td>
+              <td id="cell_1_3"></td>
+              <td id="cell_1_4"></td>
+              <td class="point_1"></td>
+              <td class="score_1"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_2_1"></td>
+              <td id="cell_2_2"></td>
+              <td id="cell_2_3"></td>
+              <td id="cell_2_4"></td>
+              <td class="point_2"></td>
+              <td class="score_2"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_3_1"></td>
+              <td id="cell_3_2"></td>
+              <td id="cell_3_3"></td>
+              <td id="cell_3_4"></td>
+              <td class="point_3"></td>
+              <td class="score_3"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_4_1"></td>
+              <td id="cell_4_2"></td>
+              <td id="cell_4_3"></td>
+              <td id="cell_4_4"></td>
+              <td class="point_4"></td>
+              <td class="score_4"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="container-header">
+          <h1>Participation_D</h1>
+        </div>
+        <div class="league-table">
+          <table border="2" bordercolor="black" style="border-collapse: collapse;">
+            <tr class="top-tr">
+              <th class="team-title">team</th>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <td class="opponent-name"></td>
+              <th class="point-title">point</th>
+              <th class="score-title">score</th>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_1_1"></td>
+              <td id="cell_1_2"></td>
+              <td id="cell_1_3"></td>
+              <td id="cell_1_4"></td>
+              <td class="point_1"></td>
+              <td class="score_1"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_2_1"></td>
+              <td id="cell_2_2"></td>
+              <td id="cell_2_3"></td>
+              <td id="cell_2_4"></td>
+              <td class="point_2"></td>
+              <td class="score_2"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_3_1"></td>
+              <td id="cell_3_2"></td>
+              <td id="cell_3_3"></td>
+              <td id="cell_3_4"></td>
+              <td class="point_3"></td>
+              <td class="score_3"></td>
+            </tr>
+            <tr class="result-cells">
+              <td class="self-name"></td>
+              <td id="cell_4_1"></td>
+              <td id="cell_4_2"></td>
+              <td id="cell_4_3"></td>
+              <td id="cell_4_4"></td>
+              <td class="point_4"></td>
+              <td class="score_4"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
