@@ -1,0 +1,101 @@
+.Match {
+  &Container {
+    width: 90%;
+    min-width: 600px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 56px;
+    .-header {
+      // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
+      margin: 0 0 12px;
+      h1 {
+        font-size: 24px;
+      }
+    }
+  }
+  &Table {
+    .TableTitle {
+      background-color: #b7cadc;
+      color: white;
+      font-size: 16px;
+      .-number {
+        width: 80px;
+      }
+      .-team {
+        width: 320px;
+      }
+      .-referee {
+        width: 240px;
+      }
+    }
+    .TableContent {
+      // background-color: #b7cadc;
+      color: black;
+      font-size: 16px;
+      select {
+        font-size: 24px;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 4px;
+        // border: none;
+        text-align-last:right;
+        outline: none;
+        // background: transparent;
+      }
+      .-number {
+        width: 80px;
+      }
+      .-teamA {
+        width: 320px;
+        font-size: 24px;
+      }
+      .-point {
+        .ContentFlex {
+          display: flex;
+          .left {
+            margin: 0 8px 8px;
+          }
+          .right {
+            margin: 0 8px 8px;
+          }
+          p {
+            font-size: 8px;
+          }
+          select {
+          border-radius: 20px;
+          padding-right: 6px;
+          }
+        }
+        input[type="submit"] {
+          display: block;
+          width: 60%;
+          height: auto;
+          margin: 0 auto 4px;
+          border-radius: 30px;
+          font-size: 14px;
+          background-color: #b7cadc;
+          color: #ffffff;
+          cursor: pointer;
+          outline: none;
+          border: 1px solid #b7cadc;
+          &:hover {
+            background-color: #ffffff;
+            color: #b7cadc;
+            transition: all 0.3s ease;
+          }
+        }
+      }
+      .-teamB {
+        width: 320px;
+        font-size: 24px;
+      }
+      .-referee {
+        width: 240px;
+      }
+    }
+  }
+}
