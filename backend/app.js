@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
 app.get('/index', (req, res) => {
   connection.query(
-    'SELECT * FROM team; SELECT * FROM court; update team D, (SELECT C.id, C.name, sum(C.point_AB) AS sum_pointAB, sum(C.score_AB) AS sum_scoreAB FROM (select B.id, B.name, sum(A.point_A) as point_AB, sum(A.result1) + sum(A.result2) - sum(A.result3) - sum(A.result4) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_A = B.number group by B.id union all select B.id, B.name, sum(A.point_B) as point_AB, sum(A.result3) + sum(A.result4) - sum(A.result1) - sum(A.result2) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_B = B.number group by B.id) as C group by C.id ) E set D.pre_point = E.sum_pointAB, D.pre_score = E.sum_scoreAB where D.id = E.id',
+    'SELECT * FROM team; SELECT * FROM court; update team D, (SELECT C.id, C.name, sum(C.point_AB) AS sum_pointAB, sum(C.score_AB) AS sum_scoreAB FROM (select B.id, B.name, sum(A.point_A) as point_AB, sum(A.result1) + sum(A.result2) - sum(A.result3) - sum(A.result4) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_A = B.number group by B.id union all select B.id, B.name, sum(A.point_B) as point_AB, sum(A.result3) + sum(A.result4) - sum(A.result1) - sum(A.result2) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_B = B.number group by B.id) as C group by C.id ) E set D.pre_point = E.sum_pointAB, D.pre_score = E.sum_scoreAB where D.id = E.id;UPDATE team H, (SELECT H.id, H.name, sum(H.point_FG) as sum_pointFG, sum(H.score_FG) as sum_scoreFG FROM ( SELECT G.id, G.name, sum(F.point_A) as point_FG, sum(F.result1) + sum(F.result2) - sum(F.result3) - sum(F.result4) as score_FG FROM game2 F INNER JOIN team G ON F.court = G.mid_court collate utf8_general_ci AND F.number_A = G.mid_number group by G.id union all select G.id, G.name, sum(F.point_B) as point_FG, sum(F.result3) + sum(F.result4) - sum(F.result1) - sum(F.result2) as score_FG FROM game2 F INNER JOIN team G ON F.court = G.mid_court collate utf8_general_ci AND F.number_B = G.mid_number group by G.id) as H group by H.id) I SET H.mid_point = I.sum_pointFG, H.mid_score = I.sum_scoreFG where H.id = I.id;UPDATE team SET sum_point = pre_point + mid_point, sum_score = pre_score + mid_score;',
     (error, results) => {
       res.render('index.ejs', {items: results[0], courts: results[1]});
     }
@@ -59,7 +59,7 @@ app.get('/match', (req, res) => {
 });
 app.get('/midway', (req, res) => {
   connection.query(
-    'SELECT * FROM team; SELECT * FROM court; SELECT * FROM game',
+    'SELECT * FROM team; SELECT * FROM court; SELECT * FROM game2',
     (error, results) => {
       res.render('midway.ejs', {teams: results[0], courts: results[1], games: results[2]});
     }
@@ -198,10 +198,10 @@ app.post('/entry2/:id', (req, res) => {
   console.log(point_B);
   console.log("チェックここまで");
   connection.query(
-    'UPDATE game SET result1 = ?, result2 = ?, result3 = ?, result4 = ?, point_A = ?, point_B = ? WHERE game_id = ?',
+    'UPDATE game2 SET result1 = ?, result2 = ?, result3 = ?, result4 = ?, point_A = ?, point_B = ? WHERE game_id = ?',
     [ req.body.result1, req.body.result2 ,req.body.result3, req.body.result4, point_A, point_B, req.params.id ],
     (error, results) => {
-      res.redirect('/match');
+      res.redirect('/midway');
     }
   );
 });
@@ -248,7 +248,7 @@ app.post('/total', (req,res) => {
   console.log(point_B);
   console.log("ここまで");
   connection.query(
-    'update team D, (SELECT C.id, C.name, sum(C.point_AB) AS sum_pointAB, sum(C.score_AB) AS sum_scoreAB FROM (select B.id, B.name, sum(A.point_A) as point_AB, sum(A.result1) + sum(A.result2) - sum(A.result3) - sum(A.result4) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_A = B.number group by B.id union all select B.id, B.name, sum(A.point_B) as point_AB, sum(A.result3) + sum(A.result4) - sum(A.result1) - sum(A.result2) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_B = B.number group by B.id) as C group by C.id ) E set D.pre_point = E.sum_pointAB, D.pre_score = E.sum_scoreAB where D.id = E.id',
+    'update team D, (SELECT C.id, C.name, sum(C.point_AB) AS sum_pointAB, sum(C.score_AB) AS sum_scoreAB FROM (select B.id, B.name, sum(A.point_A) as point_AB, sum(A.result1) + sum(A.result2) - sum(A.result3) - sum(A.result4) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_A = B.number group by B.id union all select B.id, B.name, sum(A.point_B) as point_AB, sum(A.result3) + sum(A.result4) - sum(A.result1) - sum(A.result2) as score_AB from game A inner join team B on A.court = B.court collate utf8_general_ci and A.number_B = B.number group by B.id) as C group by C.id ) E set D.pre_point = E.sum_pointAB, D.pre_score = E.sum_scoreAB where D.id = E.id;UPDATE team H, (SELECT H.id, H.name, sum(H.point_FG) as sum_pointFG, sum(H.score_FG) as sum_scoreFG FROM ( SELECT G.id, G.name, sum(F.point_A) as point_FG, sum(F.result1) + sum(F.result2) - sum(F.result3) - sum(F.result4) as score_FG FROM game2 F INNER JOIN team G ON F.court = G.mid_court collate utf8_general_ci AND F.number_A = G.mid_number group by G.id union all select G.id, G.name, sum(F.point_B) as point_FG, sum(F.result3) + sum(F.result4) - sum(F.result1) - sum(F.result2) as score_FG FROM game2 F INNER JOIN team G ON F.court = G.mid_court collate utf8_general_ci AND F.number_B = G.mid_number group by G.id) as H group by H.id) I SET H.mid_point = I.sum_pointFG, H.mid_score = I.sum_scoreFG where H.id = I.id',
     [ req.body.Number ],
     (error,results) => {
       // 一覧画面にリダイレクトする処理

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>U-100/T-140</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="js/w3.js"></script>
   </head>
   <body>
     <!-- <div class="header">
@@ -17,10 +18,10 @@
           <h1>Participation</h1>
           <ul class="nav-list">
             <li class="nav-list-item">
-              <a href="/match" class="newMatch">予選リーグ入力⤴</a>
+              <a href="/match" class="newMatch">予選リーグ⤴</a>
             </li>
             <li class="nav-list-item">
-              <a href="/midway" class="newMidway">中間リーグ入力⤴</a>
+              <a href="/midway" class="newMidway">中間リーグ⤴</a>
             </li>
             <li class="nav-list-item">
               <a href="/new" class="newTeam">+ チーム追加</a>
@@ -30,29 +31,14 @@
           <div class="table-head">
             <div class="id-column">ID</div>
             <div class="name-column">name</div>
-            <div class="preliminary">
-              <p>予選リーグ</p>
-              <div class="Flex">
-                <div class="court-column">コート</div>
-                <div class="point-column">P</div>
-                <div class="score-column">S</div>
-              </div>
-            </div>
-            <div class="midway">
-              <p>中間リーグ</p>
-              <div class="Flex">
-                <div class="court-column">コート</div>
-                <div class="point-column">P</div>
-                <div class="score-column">S</div>
-              </div>
-            </div>
-            <div class="total">
-              <p>総合結果</p>
-              <div class="Flex">
-                <div class="point-column">P</div>
-                <div class="score-column">S</div>
-              </div>
-            </div>
+            <div class="point-column">P</div>
+            <div class="score-column">S</div>
+            <div class="court-column">コート</div>
+            <div class="point-column">P</div>
+            <div class="score-column">S</div>
+            <div class="court-column">コート</div>
+            <div class="SumPoint">総合P</div>
+            <div class="SumPoint">総合S</div>
             <div class="rank-column"></div>
           </div>
           <ul class="table-body">
@@ -64,20 +50,20 @@
                     <div class="name-column"><%= team.name %></div>
                   </div>
                   <div class="flex-right">
+                    <div class="point-column -pre"><%= team.pre_point %></div>
+                    <div class="score-column -pre"><%= team.pre_score %></div>
+                    <div class="court-column -pre"><%= team.court + "-" + team.number %></div>
                     <div class="item-menu">
                       <a href="/edit/<%= team.id %>">編集</a>
                     </div>
-                    <div class="court-column"><%= team.court + "-" + team.number %></div>
-                    <div class="point-column"><%= team.pre_point %></div>
-                    <div class="score-column"><%= team.pre_score %></div>
+                    <div class="point-column -mid"><%= team.mid_point %></div>
+                    <div class="score-column -mid"><%= team.mid_score %></div>
+                    <div class="court-column -mid"><%= team.mid_court + "-" + team.mid_number %></div>
                     <div class="item-menu">
                       <a href="/edit2/<%= team.id %>">編集</a>
                     </div>
-                    <div class="court-column"><%= team.mid_court + "-" + team.mid_number %></div>
-                    <div class="point-column"><%= team.mid_point %></div>
-                    <div class="score-column"><%= team.mid_score %></div>
-                    <div class="point-column"><%= team.sum_point %></div>
-                    <div class="score-column"><%= team.sum_score %></div>
+                    <div class="point-column -pre"><%= team.sum_point %></div>
+                    <div class="score-column -pre"><%= team.sum_score %></div>
                     <div class="item-menu">
                       <form action="/delete/<%= team.id %>" method="post">
                         <input type="submit" value="削除">
