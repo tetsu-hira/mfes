@@ -173,7 +173,7 @@ header {
   width: 90%;
   min-width: 600px;
   max-width: 1040px;
-  margin: 0 auto;
+  margin: 0 auto 0 80px;
   margin-bottom: 56px;
 }
 
@@ -571,15 +571,41 @@ table {
   color: #58d2b2;
 }
 
+.MatchList {
+  line-height: 24px;
+  list-style: none;
+}
+.MatchList .-item {
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+.MatchList .-item:last-child {
+  margin-right: 45vw;
+}
+.MatchList .-item a {
+  color: #6c7686;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 16px 32px;
+}
+.MatchList .-item a:hover {
+  color: #ffffff;
+  background-color: #6c7686;
+}
+
 .MatchContainer {
   width: 90%;
   min-width: 600px;
   max-width: 960px;
-  margin: 0 auto;
-  padding-top: 56px;
+  margin: 0 auto 200px 80px;
 }
 .MatchContainer .-header {
   margin: 0 0 12px;
+}
+.MatchContainer .-header .JumpPoint {
+  padding-top: 72px;
 }
 .MatchContainer .-header h1 {
   font-size: 24px;

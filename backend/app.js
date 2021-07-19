@@ -35,7 +35,25 @@ const connection = mysql.createConnection({
   multipleStatements: true // 複数のステートメントを有効にする
 });
 
+connection.connect(function (err) {
+  if (err) {
+      console.error(err);
+  }
+});
+connection.query('SELECT * from team;SELECT * FROM court;', function (err, results) {
+  if (err) {
+      console.error(err);
+  }
+  console.log('results');
+  const items = results[0];
+  const courts = results[1];
+  console.log(items);
+  console.log(courts);
+
+});
+
 app.get('/', (req, res) => {
+  console.log(connection);
   res.render('top.ejs');
 });
 
@@ -231,7 +249,7 @@ app.post('/create', (req, res) => {
 app.post('/delete/:id', (req,res) => {
   // 処理
   connection.query(
-    'UPDATE team SET court= null, number = null WHERE id = ?',
+    'UPDATE team SET court= null, number = null, mid_court= null, mid_number = null WHERE id = ?',
     [ req.params.id ],
     (error,results) => {
       // 一覧画面にリダイレクトする処理

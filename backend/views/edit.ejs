@@ -21,13 +21,13 @@
           <form action="/update/<%= teams[0].id %>" method="post">
             <select class="CourtNum" name="itemName">
               <% courts.forEach((court) => { %>
-                <option hidden>選択</option>
+                <option hidden><%= teams[0].court %></option>
                 <option><%= court.court %></option>
               <% }) %> 
             </select>
             <select class="CourtNum" name="itemNum">
               <% courts.forEach((court) => { %>
-                <option hidden>選択</option>
+                <option hidden><%= teams[0].number %></option>
                 <option><%= court.number %></option>
               <% }) %> 
             </select>

@@ -9,18 +9,18 @@
   </head>
   <body>
     <header>
-      <a href="/index" class="match-logo">LIST APP⤴</a>
-      <ul class="nav-list">
-        <li class="nav-list-item">
+      <a href="/index" class="match-logo">試合結果表⤴</a>
+      <ul class="MatchList">
+        <li class="MatchList -item">
           <a href="#Participation_a">Aコート</a>
         </li>
-        <li class="nav-list-item">
+        <li class="MatchList -item">
           <a href="#Participation_b">Bコート</a>
         </li>
-        <li class="nav-list-item">
+        <li class="MatchList -item">
           <a href="#Participation_c">Cコート</a>
         </li>
-        <li class="nav-list-item">
+        <li class="MatchList -item">
           <a href="#Participation_d">Dコート</a>
         </li>
       </ul>
@@ -29,7 +29,7 @@
       <div class="MatchContainer">
         <% courts.forEach((court) => { %>
           <div class="MatchContainer -header">
-            <a id="Participation_<%= court.court %>"></a>
+            <a id="Participation_<%= court.court %>" class="JumpPoint"></a>
             <h1>Participation_<%= court.court %></h1>
           </div>
           <div class="MatchTable">
