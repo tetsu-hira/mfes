@@ -163,6 +163,21 @@ header {
     color: #58d2b2;
   }
 }
+.header-button {
+  margin-left: 56px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 56px;
+  color: #fff;
+  display: inline-block;
+  border: 1px solid #b7cadc;
+  background-color: #b7cadc;
+  padding: 0 8px;
+  &:hover {
+    color: #b7cadc;
+    background-color: #ffffff;
+  }
+}
 
 
 /* container ================================ */
